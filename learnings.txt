@@ -1,0 +1,31 @@
+Date: 23-12-23
+
+1) I got to know about the useNavigate() hook and this hook returns a method which can be used to redirect to different pages on frontend
+
+Earlier i wasn't aware of this and used to think that res.redirect in the backend is used in all the places, such a dumb:(
+
+Key points to remember:
+
+Client-side only: useNavigate() is a client-side mechanism for navigation, meaning it happens entirely within the browser.
+No server interaction: It doesn't initiate a request to the server or involve any server-side processing for navigation.
+Smooth transitions: It enables seamless transitions between different views or components in your React app, enhancing user experience.
+History manipulation: It updates the browser's history stack, allowing users to go back and forward using the browser's navigation buttons.
+
+
+2)In the Typeracer component I wasn't aware of the differences of Redirect() and navigate() 
+Here is the summary: 
+
+=> Both Navigate and Redirect are tools for changing routes and triggering the rendering of new components associated with those routes.
+=> They don't "continue" rendering the same component; they transition to a new route, rendering the component specified for that route.
+=> The choice between them depends on the version of React Router you are using. In React Router v6, prefer using Navigate for programmatic navigation.
+
+3)I was also stuck in the Route render part 
+I was using <<Route path="/game/:gameID" render={props => <TypeRacer {...props}
+                                                            gameState={gameState}/>}/>
+
+And it was showing an error when I was creating a game that no element/component is assigned to the specific path 
+
+=> Also i was thinking of using the normal <Route path='' element='' /> Syntax but was confused that how are we gonna send the props part, So, later i got to know that :
+{ 
+    The element prop in React Router v6 is designed to pass the route props automatically to the specified component, so you don't need to manually spread the props as you would with the render prop 
+}

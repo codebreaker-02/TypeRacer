@@ -1,0 +1,27 @@
+1)Creating Reset-game event: 
+    i)To reset game we have to emit an event 'reset-game' on clicking the ResetGame button at result and the event at server should reset all the data of the players and should start a new game with the same room members
+    ii)ResetButton is in ScoreBoard
+
+
+2)Creating Reset-Game button:
+
+
+3)Giving resetting privileges to partyLeader only:
+
+
+4)Game Id - Copy To Clipboard functionality
+
+
+
+currently working:
+
+1) So i wanted to add functionality that whenver a user completes typing he should shown the results but everyone else shouldn't and also the reset button should not be visible till the game gets Over.
+
+=> I implemented the later functionality but the first one is yet to be done 
+=> I want a mechanism that when he completes, an event should emit to the server and server should respond with an updatedGameState where that player has isCompleted attribute set to true
+but currently we don't have that one, So i have to change the model
+    Things Change:
+    i)Changed the model and added an attribute to the players schema - isCompleted
+
+
+

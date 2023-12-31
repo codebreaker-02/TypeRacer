@@ -1,0 +1,37 @@
+We open the default route 'localhost:3001/' 
+A webpage opens up and that is done by the frontend (client-side logic) and then when you interact with one of the following buttons => [ CreateGame OR JoinGame ] then you will be navigated to their repective routes '/game/create' OR '/game/join' 
+
+Already-done things: 
+    We have already connected the frontend server with the backend server in the 'socketConfig' file and that file is used by importing the socket in main App.js 
+1)Create-Game : 
+    Here you will have a from asking for your nickName for the game 
+    After filling up the form and as you submit, it emits an event 'create-game' and the server listens to this event and do some things such as :
+    {
+        It will fetch the Quotes from Quotable API (a function which fetch quotes from API using axios and return an array of words in that quote splitted by delimeter " ")
+
+        As we know the person who is Creating a game is considered the partyLeader(or the gameLeader), But by default the player's properties have false in their isPartyLeader Attribute, So we have to change that and make it true for the current user and also we will assign its socketId as the current client socketId
+
+        Now after making some changes in the Game it save the changes to the database
+        And after that it Creates a room using the 'socket.join(gameID)'
+
+        After that we also update these changes (added player, game words, etc) in the game by sending an event 'updateGame'
+    }
+
+    Q. Why they are using the socket.on() event listner inside the useEffect() ?
+    => The useEffect has an empty dependency array ([]), which means it runs once during the mount phase and then is not re-run in response to updates. However, the event handler (socket.on) is set up during the mount phase, and it will continue to respond to the 'updateGame' event even after the initial mount.
+
+    
+
+    After Creating a room
+    1)You will be directed to the TypeRacer component and that will contain 4 subcomponent which are 
+        i)DisplayWords
+        ii)form
+        iii)CountDown
+        iv)StartBtn
+    After you click Start-Game
+    1)It will emit a timer event and the get-ready countDown timer will start in backend and will check for the condition 'isPartyLeader' and after that it will start performing a function on an interval of 1sec till the countDown becomes 0
+    and after that It will start another function 'startGameClock'
+    2)Now the game starts and 
+
+
+

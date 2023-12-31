@@ -1,0 +1,39 @@
+1)I am creating this app with the help of tutorial I have in the parent directory folder 
+
+Phase - i
+1)We are going to install some packages and setup the server
+2)Initially i encountered an error on the mongoose.connect()
+that mongoose.prototype.connect() was not accepting the callback(), it is mentioned in the docs that it does but idk (seems outdated docs)
+So, to resolve this i used .then().catch() method for the connection (because it is a promiseo or you can say asnychronous call)
+3)This was the first phase of the video 
+4)Also In this phase we decided where to get the sample text for the typing 
+(We chose quotable.io to get the random quotes from API using axios)
+
+Phase - II
+1)Now we are going to make a mongoose model for the Game 
+2)Now the Game also consists of a player for which we have to create another Schema of player
+3)Schema of player consists of some attributes like - nickName, socketId, WPM, currentWordIndex(the index where he is currently in the text-to-type in game), isPartyLeader(kya wo us game ka leader h, matlab kya game usne create kari hai?, why this i important? becoz he will have the special ability to start the game)
+4)Now we will make GameSchema (components of game session in DB) it will consists of attribs like - words, isOpen , isOver, array of players, startTime
+
+Phase - III
+1)Now coming onto the client part
+2)We will create a react app using create-react-app
+3)We will install some packages such as react-router-dom and setup the routes and paths
+4)After that we will make the GameMenu using simple bootstrap 
+5)Here comes the functioning of the useNavigate and createBrowserHistory , i didn't focused on that much , but that is due currently!!!!!!!!!!!!!
+
+=>SOMETHINGS TO DO
+
+6)After that we will install a socket.io-client package and i think it is used to enable a conection between the clients and the socket server
+7)and than we 
+
+
+
+
+Designing The Start Button
+    1) The start button will be recieving the prop of player that clicked Start and the gameID
+    2) Now we will create a State variable 'showBtn' because that will decide whether the button is going to be visible n the game screen or not 
+    3) As we know that only the leader of the game can start the game so we have to check for two conditions 
+        i) The showBtn is true , and
+        ii) player that clicked the button is partyPlayer or not
+    4) 
